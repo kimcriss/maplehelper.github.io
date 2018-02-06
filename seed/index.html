@@ -1,0 +1,221 @@
+
+
+<!doctype html><html><head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="shortcut icon">
+	<script src="js/script.js"></script>
+	<title>더 시드 기록지</title>
+</head><body>
+	<div id="wrap">
+		<form onsubmit="return false">
+			<div id="floor0">
+				<h1>0. 로비</h1>
+				<p><label for="q_0_0">입장 전 시드 포인트 <input type="number" id="q_0_0" /></label></p>
+			</div>
+			<div id="floor1">
+				<h1>1. 슬라임 잡기</h1>
+				<p><label for="q_1_0">잡은 슬라임 수 <input type="number" id="q_1_0" /></label></p>
+				<p><label for="q_1_1">누적 데미지 <input type="number" id="q_1_1" /></label></p>
+			</div>
+			<div id="floor2">
+				<h1>2. 카드 꽂기</h1>
+				<script type="text/html" id="card_form">
+					<li>
+						<button onclick="$(this).parent().remove();return false;">X</button>
+						<button onclick="return toggleText($(this));" value="0">[선택안함]</button>
+						###1
+					</li>
+				</script>
+				<div>
+					<div><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 1);">1</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 2);">2</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 3);">3</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 4);">4</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 5);">5</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 6);">6</button><button style="width: 32px; height: 32px; background: #fdd" onclick="return addCard(this.style.backgroundColor, '레드', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 1);">1</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 2);">2</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 3);">3</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 4);">4</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 5);">5</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 6);">6</button><button style="width: 32px; height: 32px; background: #ddf" onclick="return addCard(this.style.backgroundColor, '블루', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 1);">1</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 2);">2</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 3);">3</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 4);">4</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 5);">5</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 6);">6</button><button style="width: 32px; height: 32px; background: #dfd" onclick="return addCard(this.style.backgroundColor, '그린', 7);">7</button></div><div><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 1);">1</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 2);">2</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 3);">3</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 4);">4</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 5);">5</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 6);">6</button><button style="width: 32px; height: 32px; background: #ffb" onclick="return addCard(this.style.backgroundColor, '옐로우', 7);">7</button></div>					<div>
+						<button style="width: 224px; height: 32px; background: #b8d" onclick="return addCard(this.style.backgroundColor, '바이올렛','');">바이올렛</button>
+					</div>
+				</div>
+				<ol id="floor2_cards">
+				</ol>
+			</div>
+			<div id="floor3">
+				<h1>3. 알 줍기</h1>
+				<p><label for="q_3_0">누군가를 믿어준 횟수 <input type="number" id="q_3_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor4">
+				<h1>4. 균형 맞추기</h1>
+				<p><label for="q_4_0">균형점수가 깎인 횟수 <input type="number" id="q_4_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor6">
+				<h1>6. 슬라임 잡기</h1>
+				<p><label for="q_6_0">잡은 킹슬라임 수 <input type="number" id="q_6_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor8">
+				<h1>8. 벌레 잡기</h1>
+				<p><label for="q_8_0">파티원까지 잡은 몬스터 수 <input type="number" id="q_8_0" /></label></p>
+			</div>
+			<div id="floor9">
+				<h1>9. 랜덤 발판</h1>
+				<p><label for="q_9_0">통과할 때 틀린 횟수는? <input type="number" id="q_9_0" class="increasing" /></label></p>
+				<p>
+											<div><span>01</span><input type="radio" id="q_9_1_1_1" name="q_9_1_1" /><input type="radio" id="q_9_1_1_2" name="q_9_1_1" /><input type="radio" id="q_9_1_1_3" name="q_9_1_1" /><input type="radio" id="q_9_1_1_4" name="q_9_1_1" /></div>
+											<div><span>02</span><input type="radio" id="q_9_1_2_1" name="q_9_1_2" /><input type="radio" id="q_9_1_1_2" name="q_9_1_2" /><input type="radio" id="q_9_1_1_3" name="q_9_1_2" /><input type="radio" id="q_9_1_1_4" name="q_9_1_2" /></div>
+											<div><span>03</span><input type="radio" id="q_9_1_3_1" name="q_9_1_3" /><input type="radio" id="q_9_1_1_2" name="q_9_1_3" /><input type="radio" id="q_9_1_1_3" name="q_9_1_3" /><input type="radio" id="q_9_1_1_4" name="q_9_1_3" /></div>
+											<div><span>04</span><input type="radio" id="q_9_1_4_1" name="q_9_1_4" /><input type="radio" id="q_9_1_1_2" name="q_9_1_4" /><input type="radio" id="q_9_1_1_3" name="q_9_1_4" /><input type="radio" id="q_9_1_1_4" name="q_9_1_4" /></div>
+											<div><span>05</span><input type="radio" id="q_9_1_5_1" name="q_9_1_5" /><input type="radio" id="q_9_1_1_2" name="q_9_1_5" /><input type="radio" id="q_9_1_1_3" name="q_9_1_5" /><input type="radio" id="q_9_1_1_4" name="q_9_1_5" /></div>
+											<div><span>06</span><input type="radio" id="q_9_1_6_1" name="q_9_1_6" /><input type="radio" id="q_9_1_1_2" name="q_9_1_6" /><input type="radio" id="q_9_1_1_3" name="q_9_1_6" /><input type="radio" id="q_9_1_1_4" name="q_9_1_6" /></div>
+											<div><span>07</span><input type="radio" id="q_9_1_7_1" name="q_9_1_7" /><input type="radio" id="q_9_1_1_2" name="q_9_1_7" /><input type="radio" id="q_9_1_1_3" name="q_9_1_7" /><input type="radio" id="q_9_1_1_4" name="q_9_1_7" /></div>
+											<div><span>08</span><input type="radio" id="q_9_1_8_1" name="q_9_1_8" /><input type="radio" id="q_9_1_1_2" name="q_9_1_8" /><input type="radio" id="q_9_1_1_3" name="q_9_1_8" /><input type="radio" id="q_9_1_1_4" name="q_9_1_8" /></div>
+									</p>
+			</div>
+			<div id="floor11">
+				<h1>11. 플라워 골렘 잡기</h1>
+				<p><label for="q_11_0">잡은 블랙 플라워 골렘의 수 <input type="number" id="q_11_0" /></label></p>
+			</div>
+			<div id="floor13">
+				<h1>13. 마력석 보호하기</h1>
+				(팁 15+15+15+15+25)
+				<p><label for="q_13_0">잡은 그린 플라워 카우 수 <input type="number" id="q_11_0" /></label></p>
+				<p><label for="q_13_1">잡은 흰 가시곰 수 <input type="number" id="q_11_1" /></label></p>
+			</div>
+			<div id="floor21">
+				<h1>21. 엘리쟈 소환하기</h1>
+				<p><label for="q_21_0">엘리쟈를 제외하고 잡은 몬스터 수 <input type="number" id="q_21_0" /></label></p>
+			</div>
+			<div id="floor22">
+				<h1>22. 구름발판 건너기</h1>
+				<p><label for="q_22_0">떨어진 횟수 <input type="number" id="q_22_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor23">
+				<h1>23. 투명발판 건너기</h1>
+				<p><label for="q_23_0">떨어진 횟수 <input type="number" id="q_23_0" class="increasing" /></label></p>
+				<p>길을 볼 때 누군가가 있어 기다렸다 <span style="float:right"><label for="q_23_1_f"><input type="radio" id="q_23_1_f" name="q_23_1" value="0" /> 아니오</label> <label for="q_23_1_t"><input type="radio" id="q_23_1_t" name="q_23_1" value="1" /> 예</label></span></p>
+			</div>
+			<div id="floor24">
+				<h1>24. 마을 배경음악 쓰기</h1>
+				<div>
+						4층: 
+						<select id="q24_4">
+							<optgroup>
+								<option value="" style="background:#FEE">선택</option>
+							</optgroup>
+							<optgroup label="메이플 아일랜드">										<option value="AboveTheTreetops.mp3">리스항구</option>										<option value="BadGuys.mp3">커닝시티</option>										<option value="Nightmare.mp3">페리온</option>										<option value="WhenTheMorningComes.mp3">엘리니아</option>										<option value="FloralLife.mp3">헤네시스</option>										<option value="WindAndFlower.mp3">에우렐</option>										<option value="CocoIsland.mp3">노틸러스</option>										<option value="SleepyWood.mp3">슬리피우드</option></optgroup><optgroup label="그란디스">										<option value="Pantheon.mp3">판테온</option>										<option value="retake.mp3">헬리시움 탈환 본부</option>										<option value="foxvillage.mp3">뾰족귀 여우마을</option></optgroup><optgroup label="루더스 호수">										<option value="FantasticThinking.mp3">루디브리엄</option>										<option value="DownTown.mp3">아랫마을</option>										<option value="LetsMarch.mp3">지구방위본부</option></optgroup><optgroup label="엘나스 산맥">										<option value="Shinin'Harbor.mp3">오르비스</option>										<option value="SnowyVillage.mp3">엘나스</option></optgroup><optgroup label="아쿠아로드">										<option value="Aquarium.mp3">아쿠아리움</option></optgroup><optgroup label="미나르숲">										<option value="Leafre.mp3">리프레</option></optgroup><optgroup label="니할 사막">										<option value="Ariant.mp3">아리안트</option>										<option value="Dispute.mp3">마가티아</option></optgroup><optgroup label="무릉도원">										<option value="MureungHill.mp3">무릉</option>										<option value="WhiteHerb.mp3">백초마을</option></optgroup><optgroup label="기타">										<option value="RienVillage.mp3">리엔</option>										<option value="QueensGarden.mp3">에레브</option>										<option value="EdelsteinCity.mp3">에델슈타인</option>										<option value="FlytotheMoon.mp3">크리스탈 가든</option></optgroup>						</select>
+						<button onclick="return play($('#q24_4').val());" disabled>재생</button>
+					</div>
+				<div>
+						3층: 
+						<select id="q24_3">
+							<optgroup>
+								<option value="" style="background:#FEE">선택</option>
+							</optgroup>
+							<optgroup label="메이플 아일랜드">										<option value="AboveTheTreetops.mp3">리스항구</option>										<option value="BadGuys.mp3">커닝시티</option>										<option value="Nightmare.mp3">페리온</option>										<option value="WhenTheMorningComes.mp3">엘리니아</option>										<option value="FloralLife.mp3">헤네시스</option>										<option value="WindAndFlower.mp3">에우렐</option>										<option value="CocoIsland.mp3">노틸러스</option>										<option value="SleepyWood.mp3">슬리피우드</option></optgroup><optgroup label="그란디스">										<option value="Pantheon.mp3">판테온</option>										<option value="retake.mp3">헬리시움 탈환 본부</option>										<option value="foxvillage.mp3">뾰족귀 여우마을</option></optgroup><optgroup label="루더스 호수">										<option value="FantasticThinking.mp3">루디브리엄</option>										<option value="DownTown.mp3">아랫마을</option>										<option value="LetsMarch.mp3">지구방위본부</option></optgroup><optgroup label="엘나스 산맥">										<option value="Shinin'Harbor.mp3">오르비스</option>										<option value="SnowyVillage.mp3">엘나스</option></optgroup><optgroup label="아쿠아로드">										<option value="Aquarium.mp3">아쿠아리움</option></optgroup><optgroup label="미나르숲">										<option value="Leafre.mp3">리프레</option></optgroup><optgroup label="니할 사막">										<option value="Ariant.mp3">아리안트</option>										<option value="Dispute.mp3">마가티아</option></optgroup><optgroup label="무릉도원">										<option value="MureungHill.mp3">무릉</option>										<option value="WhiteHerb.mp3">백초마을</option></optgroup><optgroup label="기타">										<option value="RienVillage.mp3">리엔</option>										<option value="QueensGarden.mp3">에레브</option>										<option value="EdelsteinCity.mp3">에델슈타인</option>										<option value="FlytotheMoon.mp3">크리스탈 가든</option></optgroup>						</select>
+						<button onclick="return play($('#q24_3').val());" disabled>재생</button>
+					</div>
+				<div>
+						2층: 
+						<select id="q24_2">
+							<optgroup>
+								<option value="" style="background:#FEE">선택</option>
+							</optgroup>
+							<optgroup label="메이플 아일랜드">										<option value="AboveTheTreetops.mp3">리스항구</option>										<option value="BadGuys.mp3">커닝시티</option>										<option value="Nightmare.mp3">페리온</option>										<option value="WhenTheMorningComes.mp3">엘리니아</option>										<option value="FloralLife.mp3">헤네시스</option>										<option value="WindAndFlower.mp3">에우렐</option>										<option value="CocoIsland.mp3">노틸러스</option>										<option value="SleepyWood.mp3">슬리피우드</option></optgroup><optgroup label="그란디스">										<option value="Pantheon.mp3">판테온</option>										<option value="retake.mp3">헬리시움 탈환 본부</option>										<option value="foxvillage.mp3">뾰족귀 여우마을</option></optgroup><optgroup label="루더스 호수">										<option value="FantasticThinking.mp3">루디브리엄</option>										<option value="DownTown.mp3">아랫마을</option>										<option value="LetsMarch.mp3">지구방위본부</option></optgroup><optgroup label="엘나스 산맥">										<option value="Shinin'Harbor.mp3">오르비스</option>										<option value="SnowyVillage.mp3">엘나스</option></optgroup><optgroup label="아쿠아로드">										<option value="Aquarium.mp3">아쿠아리움</option></optgroup><optgroup label="미나르숲">										<option value="Leafre.mp3">리프레</option></optgroup><optgroup label="니할 사막">										<option value="Ariant.mp3">아리안트</option>										<option value="Dispute.mp3">마가티아</option></optgroup><optgroup label="무릉도원">										<option value="MureungHill.mp3">무릉</option>										<option value="WhiteHerb.mp3">백초마을</option></optgroup><optgroup label="기타">										<option value="RienVillage.mp3">리엔</option>										<option value="QueensGarden.mp3">에레브</option>										<option value="EdelsteinCity.mp3">에델슈타인</option>										<option value="FlytotheMoon.mp3">크리스탈 가든</option></optgroup>						</select>
+						<button onclick="return play($('#q24_2').val());" disabled>재생</button>
+					</div>
+				<div>
+						1층: 
+						<select id="q24_1">
+							<optgroup>
+								<option value="" style="background:#FEE">선택</option>
+							</optgroup>
+							<optgroup label="메이플 아일랜드">										<option value="AboveTheTreetops.mp3">리스항구</option>										<option value="BadGuys.mp3">커닝시티</option>										<option value="Nightmare.mp3">페리온</option>										<option value="WhenTheMorningComes.mp3">엘리니아</option>										<option value="FloralLife.mp3">헤네시스</option>										<option value="WindAndFlower.mp3">에우렐</option>										<option value="CocoIsland.mp3">노틸러스</option>										<option value="SleepyWood.mp3">슬리피우드</option></optgroup><optgroup label="그란디스">										<option value="Pantheon.mp3">판테온</option>										<option value="retake.mp3">헬리시움 탈환 본부</option>										<option value="foxvillage.mp3">뾰족귀 여우마을</option></optgroup><optgroup label="루더스 호수">										<option value="FantasticThinking.mp3">루디브리엄</option>										<option value="DownTown.mp3">아랫마을</option>										<option value="LetsMarch.mp3">지구방위본부</option></optgroup><optgroup label="엘나스 산맥">										<option value="Shinin'Harbor.mp3">오르비스</option>										<option value="SnowyVillage.mp3">엘나스</option></optgroup><optgroup label="아쿠아로드">										<option value="Aquarium.mp3">아쿠아리움</option></optgroup><optgroup label="미나르숲">										<option value="Leafre.mp3">리프레</option></optgroup><optgroup label="니할 사막">										<option value="Ariant.mp3">아리안트</option>										<option value="Dispute.mp3">마가티아</option></optgroup><optgroup label="무릉도원">										<option value="MureungHill.mp3">무릉</option>										<option value="WhiteHerb.mp3">백초마을</option></optgroup><optgroup label="기타">										<option value="RienVillage.mp3">리엔</option>										<option value="QueensGarden.mp3">에레브</option>										<option value="EdelsteinCity.mp3">에델슈타인</option>										<option value="FlytotheMoon.mp3">크리스탈 가든</option></optgroup>						</select>
+						<button onclick="return play($('#q24_1').val());" disabled>재생</button>
+					</div>
+								<object id="playerswf" type="application/x-shockwave-flash" data="maplebgm/player.swf" width="1" height="1">
+					<param name="movie" value="player_mp3_js.swf" />
+					<param name="AllowScriptAccess" value="always" />
+					<param name="FlashVars" value="listener=myListener&amp;interval=0" />
+				</object>
+				<button onclick="return stopPlay();">중지</button>
+			</div>
+			<div id="floor26">
+				<h1>26. 슬라임 소환해 잡기</h1>
+				<p><label for="q_26_0_0">시작하기 전 액체의 개수 <input type="number" id="q_26_0_0" /></label></p>
+				<p><label for="q_26_0_1">소환한 횟수 <input type="number" id="q_26_0_1" class="increasing" /></label></p>
+				<p><label for="q_26_0_2">끝나고 남은 액체의 수 <input type="number" id="q_26_0_2" /></label></p>
+				<p><label for="q_26_0">획득한 슬라임 액체의 수 <input type="number" id="q_26_0" readonly /></label></p>
+			</div>
+			<div id="floor28">
+				<h1>28. 프릴드와 벨라모아 소환해 잡기</h1>
+				<table>
+					<tr><th></th><th>좌측</th><th>우측</th></tr>
+					<tr><th>상단</th><td><input type="number" id="q_28_0_0" class="increasing" /></td><td><input type="number" id="q_28_0_1" class="increasing" /></td></tr>
+					<tr><th>하단</th><td><input type="number" id="q_28_1_0" class="increasing" /></td><td><input type="number" id="q_28_1_1" class="increasing" /></td></tr>
+					<tr><th>최하단</th><td><input type="number" id="q_28_2_0" class="increasing" /></td><td><input type="number" id="q_28_2_1" class="increasing" /></td></tr>
+				</table>
+			</div>
+			<div id="floor29">
+				<h1>29. 모래 결정 얻기</h1>
+				<p>오른쪽 나무에 떨어트린 붉은 모래 결정의 수</p>
+				<p><div style="text-align:right">
+					<label for="q_29_1"><input type="radio" id="q_23_1" name="q_29_0" />1</label>
+					<label for="q_29_2"><input type="radio" id="q_23_2" name="q_29_0" />2</label>
+					<label for="q_29_3"><input type="radio" id="q_23_3" name="q_29_0" />3</label>
+					<label for="q_29_4"><input type="radio" id="q_23_4" name="q_29_0" />4</label>
+					<label for="q_29_5"><input type="radio" id="q_23_5" name="q_29_0" />5</label>
+					<label for="q_29_6"><input type="radio" id="q_23_6" name="q_29_0" />6</label>
+					<label for="q_29_7"><input type="radio" id="q_23_7" name="q_29_0" />7</label>
+				</div></p>
+			</div>
+			<div id="floor31">
+				<h1>31. 식충 슬라임 잡기</h1>
+				<p><label for="q_31_0">페어리가 동료를 소환한 횟수 <input type="number" id="q_31_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor33">
+				<h1>33. 미로 뚫기</h1>
+				<p><label for="q_33_0">통과 후 남은 <b>반시계 방향</b> 열쇠의 수 <input type="number" id="q_33_0" class="increasing" /></label></p>
+				<p><label for="q_33_1">통과 후 남은 <b>시계 방향</b> 열쇠의 수 <input type="number" id="q_33_1" class="increasing" /></label></p>
+				<p><label for="q_33_2"><b>구매한</b> 열쇠의 수 <input type="number" id="q_33_2" class="increasing" /></label></p>
+			</div>
+			<div id="floor33">
+				<h1>34. 퍼플 래더 줍기</h1>
+				<p><label for="q_34_0">위로 가는 포탈 이용한 횟수 <input type="number" id="q_34_0" class="increasing" /></label></p>
+			</div>
+			<div id="floor35">
+				<h1>35. 쉼터</h1>
+				<p>쉼터에서 남은 시간 <input type="number" id="q_35_h" style="width:48px;" /> : <input type="number" id="q_35_m" style="width:48px;" /> : <input type="number" id="q_35_s" style="width:48px;" /></p>
+				<p><input type="number" id="q_35_0" style="width:64px;text-align:right" readonly />초</p>
+			</div>
+			<div id="floor36">
+				<h1>36. 8자리 암호 풀기</h1>
+				<p>암호 기록 (버섯 1, 달팽이 2, 리본돼지 3, 슬라임 4)</p>
+				<p>
+											<div><span>01</span><input type="radio" id="q_36_1_1_1" name="q_36_1_1" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_1" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_1" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_1" value="4" /> <span id="q_36_disp_1"></span></div>
+											<div><span>02</span><input type="radio" id="q_36_1_2_1" name="q_36_1_2" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_2" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_2" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_2" value="4" /> <span id="q_36_disp_2"></span></div>
+											<div><span>03</span><input type="radio" id="q_36_1_3_1" name="q_36_1_3" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_3" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_3" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_3" value="4" /> <span id="q_36_disp_3"></span></div>
+											<div><span>04</span><input type="radio" id="q_36_1_4_1" name="q_36_1_4" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_4" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_4" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_4" value="4" /> <span id="q_36_disp_4"></span></div>
+											<div><span>05</span><input type="radio" id="q_36_1_5_1" name="q_36_1_5" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_5" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_5" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_5" value="4" /> <span id="q_36_disp_5"></span></div>
+											<div><span>06</span><input type="radio" id="q_36_1_6_1" name="q_36_1_6" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_6" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_6" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_6" value="4" /> <span id="q_36_disp_6"></span></div>
+											<div><span>07</span><input type="radio" id="q_36_1_7_1" name="q_36_1_7" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_7" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_7" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_7" value="4" /> <span id="q_36_disp_7"></span></div>
+											<div><span>08</span><input type="radio" id="q_36_1_8_1" name="q_36_1_8" value="1" /><input type="radio" id="q_36_1_1_2" name="q_36_1_8" value="2" /><input type="radio" id="q_36_1_1_3" name="q_36_1_8" value="3" /><input type="radio" id="q_36_1_1_4" name="q_36_1_8" value="4" /> <span id="q_36_disp_8"></span></div>
+										<button onclick="return clear36();" style="float:right">지우기</button>
+				</p>
+				<p>답: <input type="text" id="q_36_1" readonly /></p>
+			</div>
+			<div id="floor38">
+				<h1>38. 어두운 기운 쫒아내기</h1>
+				<label for="q_38_0">어두운 기운이 몰려드는 몬스터가 바뀐 횟수 <input type="number" id="q_38_0" class="increasing" /></label>
+			</div>
+			<div id="floor39">
+				<h1>39. 10문제 풀기 (문제 찾기)</h1>
+				<label for="q_39_0">문제의 키워드 또는 답 찾아보기 <input type="text" id="q_39_0" class="find_39" /></label>
+				<ul id="q_39_1">
+					<li class="template" style="display:none">
+						<span class="q"></span><br />
+						<span class="al1">1. <span class="a1"></span></span><br />
+						<span class="al2">2. <span class="a2"></span></span><br />
+						<span class="al3">3. <span class="a3"></span></span><br />
+						<span class="al4">4. <span class="a4"></span></span>
+					</li>
+				</ul>
+			</div>
+			<div style="height:480px;"></div>
+		</form>
+	</div>
+</body></html>

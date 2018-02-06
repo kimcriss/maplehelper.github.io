@@ -1,0 +1,29 @@
+	html, body, p, h1, div, label
+	{
+			margin:0; padding:0; border:0;
+	}
+	body
+	{
+			font-family: NanumGothic, 'Malgun Gothic', Gulim;
+			font-size:10pt;
+			background:#EEE;
+			text-align: center;
+	}
+	table
+	{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	table, th, td
+	{
+		border: 1px solid gray;
+		border-collapse: collapse;
+	}
+	th
+	{	
+		background-color: #d0d0d0;
+	}
+	th, td
+	{
+		padding: 8px;
+	}
